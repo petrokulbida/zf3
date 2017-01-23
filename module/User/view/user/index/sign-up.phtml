@@ -1,0 +1,60 @@
+<?php
+/**
+ * @var \User\Form\SignInForm $signUpForm
+ */
+$this->headTitle($this->translate('Sign up'));
+
+$signUpForm->prepare();
+?>
+
+<p class="login-box-msg"><?php echo $this->translate('Register a new membership') ?></p>
+
+<?php echo $this->form()->openTag($signUpForm); ?>
+
+<div class="form-group has-feedback">
+
+    <?php echo $this->formElement($signUpForm->get('email')) ?>
+    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+
+    <span class="help-block bb-error">
+        <?php echo $this->formElementErrors($signUpForm->get('email'))?>
+    </span>
+</div>
+
+<div class="form-group has-feedback">
+    <?php echo $this->formElement($signUpForm->get('password')) ?>
+    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+
+    <span class="help-block bb-error">
+        <?php echo $this->formElementErrors($signUpForm->get('password'))?>
+    </span>
+</div>
+
+<div class="form-group has-feedback">
+    <?php echo $this->formElement($signUpForm->get('phone')) ?>
+    <span class="glyphicon glyphicon-phone-alt form-control-feedback"></span>
+
+    <span class="help-block bb-error">
+        <?php echo $this->formElementErrors($signUpForm->get('phone'))?>
+    </span>
+</div>
+
+<div class="row">
+
+    <div class="col-xs-12">
+        <?php echo $this->formElement($signUpForm->get('csrf')) ?>
+        <?php echo $this->formElement($signUpForm->get('submit'))?>
+
+        <span class="help-block bb-error">
+                        <?php echo $this->formElementErrors($signUpForm->get('csrf')) ?>
+                    </span>
+    </div>
+
+</div>
+<?php echo $this->form()->closeTag(); ?>
+
+<a href="<?php echo $this->url('user-index', ['action' => 'sign-in'])?>" class="text-center">
+    <?php echo $this->translate('I already have a membership')?>
+</a>
+<br>
+<a href="/" class="text-center"><?php echo $this->translate('Back to Home')?></a>

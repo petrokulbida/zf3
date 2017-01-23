@@ -1,0 +1,46 @@
+{
+  "repositories": {
+    "spav": {
+      "type": "package",
+      "package": {
+        "name": "spav",
+        "version": "0.1",
+        "source": {
+          "url": "https://github.com/fanatov37/spav.git",
+          "type": "git",
+          "reference": "8464b68"
+        }
+      }
+    }
+  },
+
+  "require": {
+    "php": "~7.0",
+    "ext-amqp": ">=1.7.0",
+    "ext-zip": "*",
+    "ext-intl": "*",
+    "ext-mbstring": "*",
+    "ext-gd": "*",
+    "ext-xml": "*",
+    "zendframework/zendframework": "~2.5",
+    "zendframework/zftool": "dev-master",
+    "zendframework/zend-developer-tools": "dev-master",
+    "phpoffice/phpexcel": "dev-master",
+    "phpunit/phpunit-skeleton-generator": "^2.0",
+    "imagine/Imagine": "dev-master",
+    "mpdf/mpdf": "^6.1",
+    "ghislainf/zf2-whoops": "dev-master",
+    "spav": "0.1"
+  },
+
+  "require-dev": {
+    "phpunit/dbunit": "^2.0"
+  },
+
+  "autoload": {
+    "psr-4": { "Spav\\": "src/" }
+  },
+  "autoload-dev": {
+    "psr-4": { "SpavTest\\": "tests/" }
+  }
+}

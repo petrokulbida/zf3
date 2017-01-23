@@ -1,0 +1,24 @@
+<?php
+/**
+ * Template of page breadcrumbs
+ */
+$title = $this->layout()->getVariable('breadcrumbsTitle');
+$links = $this->layout()->getVariable('breadcrumbsLinks');
+?>
+<ol class="breadcrumb">
+    <h1>
+        <?php echo $title ?>
+    </h1>
+
+    <?php
+        if ($links) {
+            foreach ($links as $link) {
+                echo sprintf('<li><a href="%s"><i class="fa %s"></i> %s</a></li>',
+                    isset($link['url']) ? $link['url'] : '',
+                    isset($link['class']) ? $link['class'] : 'fa-chevron-left',
+                    isset($link['name']) ? $link['name'] : ''
+                );
+            }
+        }
+    ?>
+</ol>

@@ -1,0 +1,65 @@
+<?php
+/**
+ * todo neead realization [warning, info] flash messenger. And hasMessages()
+ *
+ * flashMessenger and bootstrap example of new view
+ * http://blog.dossantos.com.au/using-flash-messages-with-zend-framework-2-and-twitter-bootstrap
+ */
+
+use Zend\Mvc\Controller\Plugin\FlashMessenger;
+
+$message = '';
+$modalHeaderClass = '';
+$modalTitleClass = '';
+$modalTitleSpanClass = '';
+$modalTitleText = '';
+
+if ($this->flashMessenger()->hasCurrentMessages(FlashMessenger::NAMESPACE_ERROR)) {
+    $modalHeaderClass = 'dialog-header-error';
+    $modalTitleClass = 'text-danger';
+    $modalTitleSpanClass = 'fa fa-exclamation-triangle';
+    $modalTitleText = $this->translate('Error');
+    $message = $this->flashMessenger()->renderCurrent(FlashMessenger::NAMESPACE_ERROR);
+    $this->flashMessenger()->clearCurrentMessages(FlashMessenger::NAMESPACE_ERROR);
+
+} elseif ($this->flashMessenger()->hasCurrentMessages(FlashMessenger::NAMESPACE_SUCCESS)) {
+    $modalHeaderClass = 'dialog-header-confirm';
+    $modalTitleClass = 'text-success';
+    $modalTitleSpanClass = 'glyphicon glyphicon-ok';
+    $modalTitleText = $this->translate('Success');
+    $message = $this->flashMessenger()->renderCurrent(FlashMessenger::NAMESPACE_SUCCESS);
+    $this->flashMessenger()->clearCurrentMessages(FlashMessenger::NAMESPACE_SUCCESS);
+}
+?>
+
+<div id="modalError" <?php if($message) echo 'data-show="1"' ?>  class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <div class="modal-header <?php echo $modalHeaderClass ?>">
+
+                <button class="close" type="button" data-dismiss="modal">x</button>
+
+                <h4 class="modal-title <?php echo $modalTitleClass ?>">
+                    <span class="<?php echo $modalTitleSpanClass?>"></span>
+                    <?php echo $modalTitleText ?>
+                </h4>
+
+            </div>
+
+            <div class="modal-body"> <?php echo $message ?> </div>
+
+            <div class="modal-footer">
+
+                <button class="btn btn-primary" data-dismiss="modal">
+                    <?php echo $this->translate('Ok') ?>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

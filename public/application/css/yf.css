@@ -1,0 +1,51 @@
+@CHARSET "UTF-8";
+
+.loader {
+    position: absolute;
+    z-index: 800;
+    background-image: url('/application/img/loading.gif');
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    background-color: #CCCCCC;
+    display: none;
+}
+
+.dialog-header-error {
+    background-color: #d2322d;
+}
+
+.dialog-header-confirm {
+    background-color: #367fa9;
+}
+
+.dialog-header-error span, .dialog-header-error h4, .dialog-header-wait span, .dialog-header-wait h4, .dialog-header-confirm span, .dialog-header-confirm h4 {
+    color: #ffffff;
+}
+
+q {
+    quotes: "\00ab" "\00bb";
+}
+
+.admin-info {
+      text-align:right;
+}
+
+.yf-producl-list {
+    border: 1px solid #ddd;
+}
+
+.bb-error {
+    color: red;
+    width: 100%;
+    display: block;
+    margin-top: 5px;
+}
+
+.bb-error ul {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+}

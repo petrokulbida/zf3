@@ -1,0 +1,51 @@
+<?php
+/**
+ * @var array $user
+ */
+?>
+<header class="main-header">
+    <a href="/" class="logo">
+        <span class="logo-lg"><b>YouFold</b></span>
+    </a>
+    <nav class="navbar navbar-static-top">
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button"></a>
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="/application/img/noImage.gif" class="user-image" alt="User Image">
+                        <span class="hidden-xs"><?php echo $user['userEmail']?></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="user-header">
+                            <img src="/application/img/noImage.gif" class="img-circle" alt="User Image">
+
+                            <p>
+                                <?php echo $user['userEmail']?>
+                                <small>Member since Nov. 2012</small>
+                            </p>
+                        </li>
+                        <li class="user-body">
+                            <div class="row">
+                                <div class="col-xs-12 text-center">
+                                    <span><?php echo $this->translate('Balance') ?></span>
+                                    <br>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="user-footer">
+                            <div class="pull-left">
+                                <a href="#" class="btn btn-default btn-flat"><?php echo $this->translate('Profile') ?></a>
+                            </div>
+                            <div class="pull-right">
+                                <a href="<?php echo $this->url('user-index', ['action' => 'sign-out'])?>" class="btn btn-default btn-flat"><?php echo $this->translate('Sign out') ?></a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>

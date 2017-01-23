@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <?php
+    echo $this->headTitle('YouFold')->setSeparator(' - ')->setAutoEscape(false);
+
+    echo $this->cpanelStylesheet();
+    echo $this->application();
+
+    echo $this->headStyle();
+    echo $this->headLink();
+
+    echo $this->jquery();
+
+    echo $this->headScript();
+
+    $user = $this->identity();
+
+    if ($user) {
+        $bodyClass = 'sidebar-mini';
+    } else {
+        $bodyClass = 'layout-top-nav';
+    }
+    ?>
+</head>
+<body class="hold-transition skin-blue <?php echo $bodyClass?>">
+<?php echo $this->partial('modal/_flash-messenger-modal'); ?>
+
+<div id="loading" class="loader"></div>
+
+<div class="wrapper">
+
+    <?php
+    if ($user) {
+        echo $this->partial('layout/adminLTE/_top-bar', ['user' => $user]);
+        echo $this->partial('layout/adminLTE/_sidebar-menu');
+        echo $this->partial('layout/adminLTE/_content');
+    } else {
+        echo $this->partial('layout/adminLTE/_top-bar-unauth');
+        echo $this->partial('layout/adminLTE/_content-unauth');
+    }
+    ?>
+
+    <?php echo $this->partial('layout/adminLTE/_footer') ?>
+</div>
+<?php echo $this->cpanelJs()?>
+
+</body>
+</html>
